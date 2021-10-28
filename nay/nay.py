@@ -8,7 +8,8 @@ from constants import projects
 def run(project_key: str, path: str):
     if project_key.lower() not in projects:
         red('Unkown project name\n')
-        usage(1)
+        usage()
+        return 1
 
     project = projects[project_key.lower()]
 
@@ -17,11 +18,11 @@ def run(project_key: str, path: str):
     if os.path.exists(target_dir):
         if not os.path.isdir(target_dir):
             red('The given path is not a folder')
-            exit(1)
+            return 1
 
         if any(os.scandir(target_dir)):
             red('The given path is a non-empty folder')
-            exit(1)
+            return 1
 
     else:
         os.makedirs(target_dir)
@@ -41,13 +42,17 @@ def run(project_key: str, path: str):
                 f.write(filecontents)
 
     green('Completed!')
+    return 0
 
 
-def main():
+def nay():
 
     if len(sys.argv) > 1 and sys.argv[1].lower() in ('-h', '--help'):
         usage()
+        return 1
 
     if len(sys.argv) < 3:
-        usage(1)
-    run(sys.argv[1], sys.argv[2])
+        usage()
+        return 1
+
+    return run(sys.argv[1], sys.argv[2])

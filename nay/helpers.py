@@ -23,12 +23,10 @@ def bold(*args):
     print(BOLD+' '.join(args)+CLEAR)
 
 
-def usage(exit_code: int = 0):
+def usage():
     print('Usage -\n')
     print('nay -h | --help                     : This help message is displayed')
     print('nay <project-type> <path-to-folder> : The given project boilerplate will be generated')
     print('\nAll projects - \n')
     for k, v in projects.items():
         print(k, ':', v['help_str'])
-
-    exit(exit_code)
