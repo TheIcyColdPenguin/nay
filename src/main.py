@@ -51,7 +51,3 @@ def main():
     if len(sys.argv) < 3:
         usage(1)
     run(sys.argv[1], sys.argv[2])
-
-
-if __name__ == '__main__':
-    main()
