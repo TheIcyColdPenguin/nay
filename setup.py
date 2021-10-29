@@ -16,14 +16,15 @@ setup(
     url='https://github.com/TheIcyColdPenguin/nay',
     author='TheIcyColdPenguin',
     license='MIT',
-    packages=find_packages(include=['nay']),
+    packages=find_packages(where='nay'),
+    package_dir={'': 'nay'},
     entry_points={
         'console_scripts': [
             'nay = nay.__main__:main',
         ],
     },
     python_requires='>=3.6',
-    install_requires=['setuptools'],
+    install_requires=['setuptools', 'wheel'],
     classifiers=[
         'Programming Language :: Python :: 3',
         'License :: OSI Approved :: MIT License',
