@@ -1,8 +1,8 @@
 from typing import Dict
 
-from custom_types import Runnable
+from .custom_types import Runnable
 
-from templates import html, readfile
+from .templates import html, readfile
 
 projects: Dict[str, Runnable] = {
     'glsl': {

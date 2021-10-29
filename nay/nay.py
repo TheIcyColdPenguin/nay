@@ -1,8 +1,8 @@
 import sys
 import os
 
-from helpers import bold, green, red, usage
-from constants import projects
+from .helpers import bold, green, red, usage
+from .constants import projects
 
 
 def run(project_key: str, path: str):

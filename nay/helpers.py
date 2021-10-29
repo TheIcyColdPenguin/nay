@@ -1,4 +1,4 @@
-from constants import projects
+from .constants import projects
 
 RED = '\033[0;31m'
 GREEN = '\033[0;32m'
