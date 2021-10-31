@@ -4,7 +4,7 @@ from nay import nay
 
 
 def main():
-    nay()
+    return nay()
 
 
 if __name__ == '__main__':
