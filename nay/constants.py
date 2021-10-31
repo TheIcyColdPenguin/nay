@@ -7,7 +7,7 @@ from templates import html, readfile
 projects: List[Runnable] = [
     {
         'names': ['glsl'],
-        'help_str': 'Generates a simple GLSL based project',
+        'help_str': 'A simple GLSL based project',
         'commands': [
             lambda:readfile('index.glsl'),
             lambda:readfile('bg.png', is_bin=True),
@@ -21,12 +21,12 @@ projects: List[Runnable] = [
     height="500"
 ></canvas>
 <script src="GlslCanvas.js"></script>
-''')
+'''),
         ]
     },
     {
         'names': ['cpp', 'c++'],
-        'help_str': 'Generates a basic C++ project structure',
+        'help_str': 'A basic C++ project structure',
         'commands': [
             'mkdir .vscode',
             lambda:readfile(
@@ -39,7 +39,7 @@ projects: List[Runnable] = [
             'mkdir src',
             lambda:readfile('main.cpp', new_filename='src/main.cpp'),
 
-            'mkdir src/includes'
+            'mkdir src/includes',
         ]
     },
 ]
