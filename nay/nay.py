@@ -1,17 +1,16 @@
 import sys
 import os
 
-from helpers import bold, green, red, usage
-from constants import projects
+from helpers import bold, green, red, usage, find_project
 
 
-def run(project_key: str, path: str):
-    if project_key.lower() not in projects:
+def run(project_name: str, path: str):
+    project = find_project(project_name)
+
+    if project is None:
         red('Unkown project name\n')
         usage()
         return 1
-
-    project = projects[project_key.lower()]
 
     target_dir = os.path.abspath(path)
 

@@ -1,11 +1,12 @@
-from typing import Dict
+from typing import List
 
 from custom_types import Runnable
 
 from templates import html, readfile
 
-projects: Dict[str, Runnable] = {
-    'glsl': {
+projects: List[Runnable] = [
+    {
+        'names': ['glsl'],
         'help_str': 'Generates a simple GLSL based project',
         'commands': [
             lambda:readfile('index.glsl'),
@@ -23,7 +24,8 @@ projects: Dict[str, Runnable] = {
 ''')
         ]
     },
-    'c++': {
+    {
+        'names': ['cpp', 'c++'],
         'help_str': 'Generates a basic C++ project structure',
         'commands': [
             'mkdir .vscode',
@@ -40,4 +42,4 @@ projects: Dict[str, Runnable] = {
             'mkdir src/includes'
         ]
     },
-}
+]

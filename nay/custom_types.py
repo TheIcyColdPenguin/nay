@@ -8,4 +8,5 @@ CommandReturnType = Union[
 
 class Runnable(TypedDict):
     commands: List[Union[str, Callable[[], CommandReturnType]]]
+    names: List[str]
     help_str: str
