@@ -47,9 +47,13 @@ def run(project_key: str, path: str):
 
 def nay():
 
+    if len(sys.argv) == 1:
+        usage()
+        return 0
+
     if len(sys.argv) > 1 and sys.argv[1].lower() in ('-h', '--help'):
         usage()
-        return 1
+        return 0
 
     if len(sys.argv) < 3:
         usage()
