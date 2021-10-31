@@ -22,5 +22,22 @@ projects: Dict[str, Runnable] = {
 <script src="GlslCanvas.js"></script>
 ''')
         ]
-    }
+    },
+    'c++': {
+        'help_str': 'Generates a basic C++ project structure',
+        'commands': [
+            'mkdir .vscode',
+            lambda:readfile(
+                'c_cpp_properties.json',
+                new_filename='.vscode/c_cpp_properties.json'
+            ),
+            lambda:readfile('launch.json', new_filename='.vscode/launch.json'),
+            lambda:readfile('tasks.json', new_filename='.vscode/tasks.json'),
+
+            'mkdir src',
+            lambda:readfile('main.cpp', new_filename='src/main.cpp'),
+
+            'mkdir src/includes'
+        ]
+    },
 }
