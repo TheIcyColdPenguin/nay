@@ -58,5 +58,23 @@ projects: List[Runnable] = [
             )
         ],
     },
-
+    {
+        'names': ['discord.py', 'd.py'],
+        'help_str':'A starter discord.py project',
+        'commands':[
+            'python3 -m venv venv',
+            (
+                '. venv/bin/activate'
+                ' && pip install python-dotenv discord.py'
+                ' && pip freeze > requirements.txt'
+            ),
+            lambda:readfile('discord_main.py', new_filename='main.py'),
+            lambda:(
+                'envconfig.py',
+                'from dotenv import load_dotenv\nload_dotenv()',
+                False
+            ),
+            lambda:('.env', 'TOKEN=', False),
+        ],
+    },
 ]
