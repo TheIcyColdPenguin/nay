@@ -22,7 +22,7 @@ projects: List[Runnable] = [
 ></canvas>
 <script src="GlslCanvas.js"></script>
 '''),
-        ]
+        ],
     },
     {
         'names': ['cpp', 'c++'],
@@ -40,7 +40,7 @@ projects: List[Runnable] = [
             lambda:readfile('main.cpp', new_filename='src/main.cpp'),
 
             'mkdir src/includes',
-        ]
+        ],
     },
     {
         'names': ['typescript', 'ts'],
@@ -51,7 +51,8 @@ projects: List[Runnable] = [
             lambda:readfile('tsconfig.json'),
 
             'mkdir src',
-            lambda:('src/index.ts', 'console.log("Hello world");\n export {}', False)
-        ]
-    }
+            lambda:('src/index.ts', 'console.log("Hello world");\n export {}', False),
+        ],
+    },
+
 ]
