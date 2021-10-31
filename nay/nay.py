@@ -1,7 +1,7 @@
 import sys
 import os
 
-from helpers import bold, green, red, usage, find_project
+from helpers import bold, green, red, usage, find_project, CLEAR, BLUE
 
 
 def run(project_name: str, path: str):
@@ -30,12 +30,12 @@ def run(project_name: str, path: str):
 
     for command in project['commands']:
         if isinstance(command, str):
-            bold(f'Running `{command}` ....')
+            bold(f'Running {BLUE}`{command}`{CLEAR} ....')
             os.system(command)
         else:
             filename, filecontents, is_bin = command()
 
-            bold(f'Generating file `{filename}` ....')
+            bold(f'Generating file {BLUE}`{filename}`{CLEAR} ....')
 
             with open(filename, 'wb' if is_bin else 'w') as f:
                 f.write(filecontents)
