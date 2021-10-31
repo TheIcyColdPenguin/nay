@@ -42,4 +42,16 @@ projects: List[Runnable] = [
             'mkdir src/includes',
         ]
     },
+    {
+        'names': ['typescript', 'ts'],
+        'help_str':'A simple Typescript project',
+        'commands':[
+            lambda:readfile('package.json'),
+            lambda:readfile('nodemon.json'),
+            lambda:readfile('tsconfig.json'),
+
+            'mkdir src',
+            lambda:('src/index.ts', 'console.log("Hello world");\n export {}', False)
+        ]
+    }
 ]
