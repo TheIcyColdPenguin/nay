@@ -51,7 +51,11 @@ projects: List[Runnable] = [
             lambda:readfile('tsconfig.json'),
 
             'mkdir src',
-            lambda:('src/index.ts', 'console.log("Hello world");\n export {}', False),
+            lambda:(
+                'src/index.ts',
+                'console.log("Hello world");\n export {}',
+                False
+            )
         ],
     },
 
