@@ -12,7 +12,20 @@ projects: List[Runnable] = [
             lambda:readfile('index.glsl'),
             lambda:readfile('bg.png', is_bin=True),
             lambda:readfile('GlslCanvas.js'),
-            lambda:html(title='GLSL', body='''
+            lambda:html(
+                title='GLSL',
+                style='''
+            html,
+            body {
+                margin: 0;
+                height: 100%;
+            }
+            body {
+                display: grid;
+                place-items: center;
+            }
+        ''',
+                body='''
 <canvas
     class="glslCanvas"
     data-fragment-url="index.glsl"
@@ -21,7 +34,8 @@ projects: List[Runnable] = [
     height="500"
 ></canvas>
 <script src="GlslCanvas.js"></script>
-'''),
+'''
+            ),
         ],
     },
     {
