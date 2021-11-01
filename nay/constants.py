@@ -26,15 +26,15 @@ projects: List[Runnable] = [
             }
         ''',
                 body='''
-<canvas
-    class="glslCanvas"
-    data-fragment-url="index.glsl"
-    data-textures="bg.png"
-    width="500"
-    height="500"
-></canvas>
-<script src="GlslCanvas.js"></script>
-'''
+        <canvas
+            class="glslCanvas"
+            data-fragment-url="index.glsl"
+            data-textures="bg.png"
+            width="500"
+            height="500"
+        ></canvas>
+        <script src="GlslCanvas.js"></script>
+    '''
             ),
         ],
     },
