@@ -50,7 +50,7 @@ projects: List[Runnable] = [
             lambda:readfile('launch.json', new_filename='.vscode/launch.json'),
             lambda:readfile('tasks.json', new_filename='.vscode/tasks.json'),
 
-            'mkdir src',
+            'mkdir src',  # NOSONAR
             lambda:readfile('main.cpp', new_filename='src/main.cpp'),
 
             'mkdir src/includes',
@@ -96,6 +96,38 @@ projects: List[Runnable] = [
                 False
             ),
             lambda:('.env', 'TOKEN=', False),
+        ],
+    },
+    {
+        'names': ['ts-web', 'ts-webpack'],
+        'help_str':'A boilerplate typescript web project bundled by webpack',
+        'commands':[
+            'mkdir dist',
+            'mkdir src',
+
+            lambda:readfile('webpack.config.js'),
+            lambda:readfile(
+                'webpack-tsconfig.json',
+                new_filename='tsconfig.json'
+            ),
+            lambda:package_json(
+                main='',
+                module=False,
+                scripts=[
+                    '"build": "webpack"',
+                    '"dev": "webpack serve --open"'
+                ]
+            ),
+
+            lambda:('src/index.ts', 'export {}', False),
+            lambda:('.gitignore', 'dist/*\n!dist/index.html', False),
+
+            lambda: html(
+                name='dist/index.html',
+                body='\n        <script src="./bundle.js"></script>\n    '
+            ),
+
+            'yarn add -D webpack webpack-dev-server webpack-cli typescript ts-loader',
         ],
     },
 ]
