@@ -2,7 +2,7 @@ from typing import List
 
 from custom_types import Runnable
 
-from templates import html, readfile
+from templates import html, readfile, package_json
 
 projects: List[Runnable] = [
     {
@@ -60,7 +60,14 @@ projects: List[Runnable] = [
         'names': ['typescript', 'ts'],
         'help_str':'A simple Typescript project',
         'commands':[
-            lambda:readfile('package.json'),
+            lambda:package_json(
+                scripts=[
+                    '"build": "tsc"',
+                    '"start": "node ."',
+                    '"build:start": "tsc && node ."',
+                    '"dev": "nodemon"'
+                ]
+            ),
             lambda:readfile('nodemon.json'),
             lambda:readfile('tsconfig.json'),
 
