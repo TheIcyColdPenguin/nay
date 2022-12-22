@@ -130,4 +130,26 @@ projects: List[Runnable] = [
             'yarn add -D webpack webpack-dev-server webpack-cli typescript ts-loader',
         ],
     },
+    {
+        'names': ['rust-wasm-web'],
+        'help_str':'A boilerplate Rust wasm web project bundled by vite',
+        'commands': [
+            'yarn create vite . --template vanilla-ts',
+            'yarn',
+            'yarn add vite vite-plugin-wasm-pack -D',
+            'cargo init --lib innards',
+
+            lambda:('Cargo.toml', '[workspace]\nmembers = ["innards"]', False),
+            lambda:readfile('vite.config.ts'),
+            lambda:readfile('main.ts', new_filename='src/main.ts'),
+            lambda:readfile('lib.rs', new_filename='innards/src/lib.rs'),
+
+            (
+                '''cd innards && printf '\\n\\n[lib]\\ncrate-type = ["cdylib"]' >> Cargo.toml && '''
+                'cargo add wasm-bindgen && cd ..'
+            ),
+            'wasm-pack build ./innards --target web'
+
+        ],
+    },
 ]
