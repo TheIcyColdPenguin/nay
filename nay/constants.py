@@ -148,6 +148,9 @@ projects: List[Runnable] = [
                 '''cd innards && printf '\\n\\n[lib]\\ncrate-type = ["cdylib"]' >> Cargo.toml && '''
                 'cargo add wasm-bindgen && cd ..'
             ),
+
+            'printf "\\n\\ntarget" >> .gitignore',
+            'rm public/vite.svg src/counter.ts src/typescript.svg',
             'wasm-pack build ./innards --target web'
 
         ],
