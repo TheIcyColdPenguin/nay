@@ -146,7 +146,7 @@ projects: List[Runnable] = [
 
             (
                 '''cd innards && printf '\\n\\n[lib]\\ncrate-type = ["cdylib"]' >> Cargo.toml && '''
-                'cargo add wasm-bindgen && cd ..'
+                'cargo add wasm-bindgen && cargo add console_error_panic_hook && cd ..'
             ),
 
             'printf "\\n\\ntarget" >> .gitignore',
